@@ -4,7 +4,9 @@ import Link from "next/link";
 const Header = () => {
   return (
     <header
-      className={"w-full h-[130px] bg-green-800/80 rounded-md p-4 pt-8 m-0"}
+      className={
+        "w-full h-[130px] bg-primary rounded-md p-4 pt-8 m-0 shadow-md"
+      }
     >
       <div className={"text-5xl"}>Бронеатлас</div>
       <div className={"mt-3 flex justify-between items-center"}>

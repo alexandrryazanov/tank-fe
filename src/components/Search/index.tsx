@@ -14,7 +14,7 @@ const Search = ({ onEnter }: SearchProps) => {
 
   return (
     <input
-      className={"w-full border-green-900 border-2 px-2"}
+      className={"w-full border-primary border-2 px-2"}
       value={value}
       onChange={(e) => setValue(e.target.value)}
       onKeyDown={onKeyPress}
