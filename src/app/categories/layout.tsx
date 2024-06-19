@@ -9,7 +9,7 @@ export default function CategoriesLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={"flex gap-2"}>
+    <div className={"flex gap-4"}>
       <div className={"flex flex-col gap-2"}>
         <Search onEnter={(value) => console.log("value", value)} />
         <TagsList />
