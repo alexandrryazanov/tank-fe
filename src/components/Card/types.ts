@@ -1,6 +1,6 @@
 export interface CardProps {
-  name: string;
-  creator: string;
+  title: string;
+  authorName: string;
   imageUrl: string;
   tags: string[];
 }

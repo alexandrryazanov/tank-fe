@@ -5,12 +5,12 @@ module.exports = {
     colors: {
       primary: {
         light: "#a0a04d", // светлый оттенок primary
-        DEFAULT: "#808000", // основной цвет primary по умолчанию
+        DEFAULT: "#303a30", // основной цвет primary по умолчанию
         dark: "#606000", // темный оттенок primary
       },
       secondary: {
         light: "#e6d7c6", // светлый оттенок secondary
-        DEFAULT: "#d7bea6", // основной цвет secondary по умолчанию
+        DEFAULT: "#b0e0b0", // основной цвет secondary по умолчанию
         dark: "#b39a82", // темный оттенок secondary
       },
       success: {
@@ -42,7 +42,11 @@ module.exports = {
         900: "#111827",
       },
     },
-    extend: {},
+    extend: {
+      textColor: {
+        default: "#b0e0b0",
+      },
+    },
   },
   plugins: [],
 };

@@ -1,17 +1,21 @@
 import Card from "@/components/Card";
+import { getPosts } from "@/api/posts";
 
-export default function PhotosPage() {
+export default async function PhotosPage() {
+  const data = await getPosts();
+
   return (
     <main>
       <div className={"flex flex-wrap gap-2"}>
-        <Card
-          name={"Pantera"}
-          creator={"Maks"}
-          imageUrl={
-            "https://parkpatriot.ru/upload/iblock/597/f1t0d6gh6fjnwyezhio8kbsn2pw4nu7v/anons.jpg"
-          }
-          tags={["German", "WW2", "1943"]}
-        />
+        {data.list.map((post) => (
+          <Card
+            key={post.id}
+            title={post.title}
+            authorName={post.author.name}
+            imageUrl={post.images[0] || ""}
+            tags={post.tags}
+          />
+        ))}
       </div>
     </main>
   );

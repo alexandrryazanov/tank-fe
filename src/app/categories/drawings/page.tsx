@@ -1,3 +1,5 @@
+import "./styles.css";
+
 export default function DrawingsPage() {
-  return <main>Drawings page</main>;
+  return <main className={"flex gap-2"}>Drawings Page</main>;
 }
