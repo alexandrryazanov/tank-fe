@@ -6,6 +6,8 @@ import { SearchProps } from "@/components/Search/types";
 const Search = ({ onEnter }: SearchProps) => {
   const [value, setValue] = useState("");
 
+  console.log("test");
+
   const onKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       onEnter(value);
