@@ -4,8 +4,8 @@ import Header from "../Header";
 import Row from "../Row";
 import HeaderCol from "../HeaderCol";
 import styles from "../styles.module.scss";
-import Body from "@/components/RealTable/Body";
-import Col from "@/components/RealTable/Col";
+import Body from "../Body";
+import Col from "../Col";
 
 function Table<Item>({ children, columns }: TableProps<Item>) {
   return (

@@ -7,6 +7,14 @@ import { Item } from "./types";
 const getValueByPath = (obj: Record<string, any>, path: string) =>
   path.split(".").reduce((acc: any, key) => acc?.[key], obj);
 
+//TODO:
+// data prop instead of map
+// getValueByPath using
+// classnames
+// default styles like a card
+// empty state
+// loading state
+
 const UsersTable = () => {
   return (
     <RealTable<Item> columns={columns}>
