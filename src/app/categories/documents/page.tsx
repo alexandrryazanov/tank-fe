@@ -1,12 +1,5 @@
-import TableTest from "@/components/TableTest/Table";
+import React from "react";
 
 export default function DocumentsPage() {
-  return (
-    <main>
-      <TableTest>
-        <tr>1</tr>
-        <tr>2</tr>
-      </TableTest>
-    </main>
-  );
+  return <main></main>;
 }
