@@ -21,11 +21,13 @@ const UsersTable = () => {
       dataUnderChildren
       classNames={classNames}
     >
-      <RealTable.Row>
-        <RealTable.Col>test1</RealTable.Col>
-        <RealTable.Col>test1</RealTable.Col>
-        <RealTable.Col>test1</RealTable.Col>
-      </RealTable.Row>
+      <RealTable.Body>
+        <RealTable.Row>
+          <RealTable.Col>test1</RealTable.Col>
+          <RealTable.Col>test1</RealTable.Col>
+          <RealTable.Col>test1</RealTable.Col>
+        </RealTable.Row>
+      </RealTable.Body>
     </RealTable>
   );
 };
