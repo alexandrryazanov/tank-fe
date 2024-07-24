@@ -2,8 +2,8 @@ import React from "react";
 import RealTable from "@/components/RealTable";
 import { columns } from "./constants";
 import { data } from "./mock";
-import { Item } from "./types";
-import { classes } from "./styles";
+import { UserItem } from "./types";
+import { classNames } from "./styles";
 
 //TODO:
 // getValueByPath using ✅
@@ -15,11 +15,11 @@ import { classes } from "./styles";
 
 const UsersTable = () => {
   return (
-    <RealTable<Item>
+    <RealTable<UserItem>
       columns={columns}
       data={data}
       dataUnderChildren
-      classes={classes}
+      classNames={classNames}
     >
       <RealTable.Row>
         <RealTable.Col>test1</RealTable.Col>

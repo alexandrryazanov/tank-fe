@@ -10,7 +10,7 @@ interface Job {
   time: string;
 }
 
-export interface Item {
+export interface UserItem {
   id: number;
   user: User;
   orders: any[];

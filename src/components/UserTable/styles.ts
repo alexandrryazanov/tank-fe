@@ -1,6 +1,6 @@
-import type { MainClasses } from "@/components/RealTable/Table/types";
+import type { MainClassNames } from "@/components/RealTable";
 
-export const classes: MainClasses = {
+export const classNames: MainClassNames = {
   table: {
     root: "bg-primary rounded-xl overflow-hidden",
   },

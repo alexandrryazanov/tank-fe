@@ -10,6 +10,8 @@ const PassedData = <Item extends ObjectWithRequiredId>({
   data,
   columns,
 }: PassedData<Item>) => {
+  if (!data?.length) return null;
+
   return (
     <Body>
       {data.map((row) => (

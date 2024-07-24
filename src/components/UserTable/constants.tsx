@@ -1,7 +1,7 @@
 import { Column } from "@/components/RealTable/types";
-import { Item } from "./types";
+import { UserItem } from "./types";
 
-export const columns: Column<Item>[] = [
+export const columns: Column<UserItem>[] = [
   { name: "ID", accessor: "id" },
   {
     name: "Firstname",

@@ -1,6 +1,5 @@
 import Table from "./Table";
 import { getValueByPath } from "./utils";
-import type MainClasses from "./Table";
+import type { MainClassNames } from "./Table/types";
 
-export type { MainClasses };
-export { getValueByPath, Table as default };
+export { getValueByPath, Table as default, MainClassNames };

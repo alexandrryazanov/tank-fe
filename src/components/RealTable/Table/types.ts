@@ -1,6 +1,5 @@
-import { HTMLAttributes, ReactElement } from "react";
+import { ReactElement } from "react";
 import { Column, ObjectWithRequiredId, RequireAtLeastOneOf } from "../types";
-import TailwindConfig from "tailwindcss/stubs/tailwind.config";
 
 interface ITableProps<Item extends ObjectWithRequiredId> {
   children?:
@@ -9,7 +8,7 @@ interface ITableProps<Item extends ObjectWithRequiredId> {
   columns: Column<Item>[];
   data?: Item[];
   dataUnderChildren?: boolean;
-  classes?: MainClasses;
+  classNames?: MainClassNames;
 }
 
 export type TableProps<Item extends ObjectWithRequiredId> = RequireAtLeastOneOf<
@@ -17,12 +16,12 @@ export type TableProps<Item extends ObjectWithRequiredId> = RequireAtLeastOneOf<
   "children" | "data"
 >;
 
-interface TableClasses {
+interface TableClassNames {
   root?: string;
-  isLoading?: string;
-  isEmpty?: string;
+  loading?: string;
+  empty?: string;
 }
 
-export interface MainClasses {
-  table?: TableClasses;
+export interface MainClassNames {
+  table?: TableClassNames;
 }

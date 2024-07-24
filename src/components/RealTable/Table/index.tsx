@@ -15,10 +15,10 @@ function Table<Item extends ObjectWithRequiredId>({
   columns,
   data,
   dataUnderChildren,
-  classes,
+  classNames,
 }: TableProps<Item>) {
   return (
-    <table className={clsx(styles.table, classes?.table?.root)}>
+    <table className={clsx(styles.table, classNames?.table?.root)}>
       <Header>
         <Row>
           {columns.map((column) => (
@@ -27,9 +27,9 @@ function Table<Item extends ObjectWithRequiredId>({
         </Row>
       </Header>
 
-      {!!data && dataUnderChildren && children}
-      {!!data?.length && <PassedData data={data} columns={columns} />}
-      {!!data && !dataUnderChildren && children}
+      {!dataUnderChildren && <PassedData data={data} columns={columns} />}
+      {children}
+      {dataUnderChildren && <PassedData data={data} columns={columns} />}
     </table>
   );
 }
