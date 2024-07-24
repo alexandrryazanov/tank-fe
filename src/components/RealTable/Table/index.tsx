@@ -6,10 +6,19 @@ import HeaderCol from "../HeaderCol";
 import styles from "../styles.module.scss";
 import Body from "../Body";
 import Col from "../Col";
+import { ObjectWithRequiredId } from "../types";
+import PassedData from "../PassedData";
+import clsx from "clsx";
 
-function Table<Item>({ children, columns }: TableProps<Item>) {
+function Table<Item extends ObjectWithRequiredId>({
+  children,
+  columns,
+  data,
+  dataUnderChildren,
+  classes,
+}: TableProps<Item>) {
   return (
-    <table className={styles.table}>
+    <table className={clsx(styles.table, classes?.table?.root)}>
       <Header>
         <Row>
           {columns.map((column) => (
@@ -17,7 +26,10 @@ function Table<Item>({ children, columns }: TableProps<Item>) {
           ))}
         </Row>
       </Header>
-      {children}
+
+      {!!data && dataUnderChildren && children}
+      {!!data?.length && <PassedData data={data} columns={columns} />}
+      {!!data && !dataUnderChildren && children}
     </table>
   );
 }

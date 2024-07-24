@@ -1,9 +1,28 @@
-import { ReactElement } from "react";
-import { Column } from "../types";
+import { HTMLAttributes, ReactElement } from "react";
+import { Column, ObjectWithRequiredId, RequireAtLeastOneOf } from "../types";
+import TailwindConfig from "tailwindcss/stubs/tailwind.config";
 
-export interface TableProps<Item> {
-  children:
+interface ITableProps<Item extends ObjectWithRequiredId> {
+  children?:
     | ReactElement<HTMLTableRowElement>
     | ReactElement<HTMLTableRowElement>[];
   columns: Column<Item>[];
+  data?: Item[];
+  dataUnderChildren?: boolean;
+  classes?: MainClasses;
+}
+
+export type TableProps<Item extends ObjectWithRequiredId> = RequireAtLeastOneOf<
+  ITableProps<Item>,
+  "children" | "data"
+>;
+
+interface TableClasses {
+  root?: string;
+  isLoading?: string;
+  isEmpty?: string;
+}
+
+export interface MainClasses {
+  table?: TableClasses;
 }
