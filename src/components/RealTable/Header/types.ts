@@ -1,7 +1,12 @@
-import { ReactElement } from "react";
+import { Column, ObjectWithRequiredId } from "@/components/RealTable/types";
 
-export interface HeaderProps {
-  children:
-    | ReactElement<HTMLTableRowElement>
-    | ReactElement<HTMLTableRowElement>[];
+export interface HeaderProps<Item extends ObjectWithRequiredId> {
+  columns: Column<Item>[];
+  classNames?: HeaderClassNames;
+}
+
+export interface HeaderClassNames {
+  root?: string;
+  rows?: string;
+  columns?: string;
 }

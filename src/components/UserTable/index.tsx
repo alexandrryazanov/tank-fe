@@ -1,17 +1,18 @@
 import React from "react";
 import RealTable from "@/components/RealTable";
 import { columns } from "./constants";
-import { data } from "./mock";
 import { UserItem } from "./types";
 import { classNames } from "./styles";
+import { data } from "@/components/UserTable/mock";
 
 //TODO:
 // getValueByPath using ✅
 // data prop instead of map ✅
-// classnames✅ !!!!!  ------ finish
+// empty state ✅
+// loading state ✅
+// classnames ✅
 // default styles like a card
-// empty state
-// loading state
+// filter for column (with debounce) - onColumnFilter = (name, value)=>{}
 
 const UsersTable = () => {
   return (
@@ -20,12 +21,15 @@ const UsersTable = () => {
       data={data}
       dataUnderChildren
       classNames={classNames}
+      emptyContent={"No data"}
+      isLoading={false}
+      loadingContent={"Loading..."}
     >
       <RealTable.Body>
         <RealTable.Row>
           <RealTable.Col>test1</RealTable.Col>
-          <RealTable.Col>test1</RealTable.Col>
-          <RealTable.Col>test1</RealTable.Col>
+          <RealTable.Col className={"bg-success"}>test2</RealTable.Col>
+          <RealTable.Col>test3</RealTable.Col>
         </RealTable.Row>
       </RealTable.Body>
     </RealTable>

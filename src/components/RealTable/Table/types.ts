@@ -1,5 +1,7 @@
-import { ReactElement } from "react";
+import { ReactElement, ReactNode } from "react";
 import { Column, ObjectWithRequiredId, RequireAtLeastOneOf } from "../types";
+import { PassedDataClassnames } from "@/components/RealTable/PassedData/types";
+import { HeaderClassNames } from "@/components/RealTable/Header/types";
 
 interface ITableProps<Item extends ObjectWithRequiredId> {
   children?:
@@ -8,6 +10,9 @@ interface ITableProps<Item extends ObjectWithRequiredId> {
   columns: Column<Item>[];
   data?: Item[];
   dataUnderChildren?: boolean;
+  emptyContent?: ReactNode;
+  isLoading?: boolean;
+  loadingContent?: ReactNode;
   classNames?: MainClassNames;
 }
 
@@ -18,10 +23,10 @@ export type TableProps<Item extends ObjectWithRequiredId> = RequireAtLeastOneOf<
 
 interface TableClassNames {
   root?: string;
-  loading?: string;
-  empty?: string;
+  header?: HeaderClassNames;
 }
 
 export interface MainClassNames {
   table?: TableClassNames;
+  passedData?: PassedDataClassnames;
 }

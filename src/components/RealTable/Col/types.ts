@@ -1,5 +1,10 @@
-import { ReactNode } from "react";
+import React from "react";
 
-export interface ColProps {
-  children: ReactNode;
+type TdHTMLAttributes = React.DetailedHTMLProps<
+  React.TdHTMLAttributes<HTMLTableCellElement>,
+  HTMLTableCellElement
+>;
+
+export interface ColProps extends TdHTMLAttributes {
+  children: React.ReactNode;
 }
