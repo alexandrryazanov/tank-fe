@@ -2,7 +2,7 @@ import React from "react";
 import Body from "../../Body";
 import Row from "../../Row";
 import Col from "../../Col";
-import styles from "./styles.module.scss";
+import styles from "../styles.module.scss";
 import clsx from "clsx";
 import { PassedDataStatusProps } from "./types";
 
