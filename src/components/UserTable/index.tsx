@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useCallback } from "react";
 import RealTable from "@/components/RealTable";
 import { columns } from "./constants";
 import { UserItem } from "./types";
@@ -12,9 +14,19 @@ import { data } from "@/components/UserTable/mock";
 // loading state ✅
 // classnames ✅
 // default styles like a card
-// filter for column (with debounce) - onColumnFilter = (name, value)=>{}
+// filter for column ✅
+// filters value type
+// other filter components
+// add classnames to our filter components
 
 const UsersTable = () => {
+  const onFilterChange = useCallback(
+    (columnName: string, value: string | number) => {
+      console.log(columnName, value);
+    },
+    []
+  );
+
   return (
     <RealTable<UserItem>
       columns={columns}
@@ -24,6 +36,7 @@ const UsersTable = () => {
       emptyContent={"No data"}
       isLoading={false}
       loadingContent={"Loading..."}
+      onFilterChange={onFilterChange}
     >
       <RealTable.Body>
         <RealTable.Row>

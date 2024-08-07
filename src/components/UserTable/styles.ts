@@ -5,10 +5,10 @@ export const classNames: MainClassNames = {
     root: "bg-primary rounded-xl overflow-hidden",
     header: { columns: "odd:bg-danger" },
   },
-  passedData: {
+  data: {
     empty: "text-danger",
+    loading: "bg-danger",
     rows: "odd:bg-primary-dark",
     columns: "",
-    loading: "bg-danger",
   },
 };

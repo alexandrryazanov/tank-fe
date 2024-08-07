@@ -13,6 +13,7 @@ interface ITableProps<Item extends ObjectWithRequiredId> {
   emptyContent?: ReactNode;
   isLoading?: boolean;
   loadingContent?: ReactNode;
+  onFilterChange?: (columnName: string, value: string | number) => void;
   classNames?: MainClassNames;
 }
 
@@ -28,5 +29,5 @@ interface TableClassNames {
 
 export interface MainClassNames {
   table?: TableClassNames;
-  passedData?: PassedDataClassnames;
+  data?: PassedDataClassnames;
 }
