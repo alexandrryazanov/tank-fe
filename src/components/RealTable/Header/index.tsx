@@ -15,7 +15,7 @@ const Header = <Item extends ObjectWithRequiredId>({
         {columns.map((column) => (
           <HeaderCol key={column.name} className={classNames?.columns}>
             {column.name}
-            {column?.filter?.((value) => onFilterChange?.(column.name, value))}
+            {column.filter?.((value) => onFilterChange?.(column.name, value))}
           </HeaderCol>
         ))}
       </Row>
