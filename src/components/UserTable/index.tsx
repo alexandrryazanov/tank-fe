@@ -15,17 +15,17 @@ import { data } from "@/components/UserTable/mock";
 // classnames ✅
 // default styles like a card
 // filter for column ✅
-// filters value type
-// other filter components
-// add classnames to our filter components
+// onChange onEnter optionally ✅
+// other filter components ✅
+// add classnames to our filter components ✅
+// sort
+// pagination
+// select rows
 
 const UsersTable = () => {
-  const onFilterChange = useCallback(
-    (columnName: string, value: string | number) => {
-      console.log(columnName, value);
-    },
-    []
-  );
+  const onFilterChange = useCallback((columnName: string, value: any) => {
+    console.log(columnName, value);
+  }, []);
 
   return (
     <RealTable<UserItem>

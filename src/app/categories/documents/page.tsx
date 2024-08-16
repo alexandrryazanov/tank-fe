@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function DocumentsPage() {
-  return <main></main>;
+  return <main>Documents</main>;
 }

@@ -18,5 +18,5 @@ export type ObjectWithRequiredId = { id: number | string };
 export interface Column<Item extends ObjectWithRequiredId> {
   name: string;
   accessor: KeysPath<Item> | ((item: Item) => ReactNode);
-  filter?: (onChange: (value: string | number) => void) => ReactNode;
+  filter?: (onChange: (value: any) => void) => ReactNode;
 }

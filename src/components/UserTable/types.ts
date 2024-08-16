@@ -3,6 +3,7 @@ interface User {
   firstName: string;
   lastName: string;
   address: { street: string; city: string };
+  age: number;
 }
 
 interface Job {

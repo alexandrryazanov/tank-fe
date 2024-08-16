@@ -1,3 +1,6 @@
 import ByValue from "./ByValue";
+import ByRange from "./ByRange";
 
-export default { ByValue };
+const filters = { ByValue, ByRange };
+
+export default filters;

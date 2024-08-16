@@ -13,7 +13,7 @@ interface ITableProps<Item extends ObjectWithRequiredId> {
   emptyContent?: ReactNode;
   isLoading?: boolean;
   loadingContent?: ReactNode;
-  onFilterChange?: (columnName: string, value: string | number) => void;
+  onFilterChange?: (columnName: string, value: any) => void;
   classNames?: MainClassNames;
 }
 

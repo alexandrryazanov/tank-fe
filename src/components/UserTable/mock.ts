@@ -8,6 +8,7 @@ export const data: UserItem[] = [
       firstName: "John",
       lastName: "Doe",
       address: { street: "Pushkina", city: "NN" },
+      age: 30,
     },
     orders: [],
     job: {
@@ -22,6 +23,7 @@ export const data: UserItem[] = [
       firstName: "Marc",
       lastName: "Zukerberk",
       address: { street: "Pushkina", city: "NN" },
+      age: 25,
     },
     orders: [],
     job: { name: "FB", time: "365" },
@@ -33,6 +35,7 @@ export const data: UserItem[] = [
       firstName: "Oleg",
       lastName: "Udenko",
       address: { street: "Pushkina", city: "NN" },
+      age: 40,
     },
     orders: [],
     job: { name: "Iteco", time: "75" },
