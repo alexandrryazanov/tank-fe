@@ -7,17 +7,27 @@ import HeaderCol from "./HeaderCol";
 const Header = <Item extends ObjectWithRequiredId>({
   columns,
   onFilterChange,
+  onColumnMove,
+  isSelectable,
   classNames,
 }: HeaderProps<Item>) => {
   return (
     <thead className={classNames?.root}>
       <Row className={classNames?.rows}>
-        {columns.map((column) => (
-          <HeaderCol key={column.name} className={classNames?.columns}>
-            {column.name}
-            {column.filter?.((value) => onFilterChange?.(column.name, value))}
-          </HeaderCol>
-        ))}
+        <>
+          {isSelectable && <HeaderCol>{""}</HeaderCol>}
+          {columns.map((column, i) => (
+            <HeaderCol
+              key={column.name}
+              className={classNames?.columns}
+              index={i}
+              onMove={onColumnMove}
+            >
+              {column.name}
+              {column.filter?.((value) => onFilterChange?.(column.name, value))}
+            </HeaderCol>
+          ))}
+        </>
       </Row>
     </thead>
   );

@@ -6,4 +6,6 @@ type ThHTMLAttributes = React.DetailedHTMLProps<
 
 export interface HeaderColProps extends ThHTMLAttributes {
   children: ReactNode;
+  index?: number;
+  onMove?: (dragIndex: number, targetIndex: number) => void;
 }

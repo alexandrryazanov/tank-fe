@@ -18,9 +18,10 @@ import { data } from "@/components/UserTable/mock";
 // onChange onEnter optionally ✅
 // other filter components ✅
 // add classnames to our filter components ✅
+// drag'n'drop columns ✅
 // sort
 // pagination
-// select rows
+// select rows ✅
 
 const UsersTable = () => {
   const onFilterChange = useCallback((columnName: string, value: any) => {
@@ -31,17 +32,21 @@ const UsersTable = () => {
     <RealTable<UserItem>
       columns={columns}
       data={data}
-      dataUnderChildren
+      dataUnderChildren={false}
       classNames={classNames}
       emptyContent={"No data"}
       isLoading={false}
       loadingContent={"Loading..."}
       onFilterChange={onFilterChange}
+      draggableColumns
+      onSelectRows={(rows) => console.log(rows)}
     >
       <RealTable.Body>
         <RealTable.Row>
           <RealTable.Col>test1</RealTable.Col>
+          <RealTable.Col>test1</RealTable.Col>
           <RealTable.Col className={"bg-success"}>test2</RealTable.Col>
+          <RealTable.Col>test3</RealTable.Col>
           <RealTable.Col>test3</RealTable.Col>
         </RealTable.Row>
       </RealTable.Body>

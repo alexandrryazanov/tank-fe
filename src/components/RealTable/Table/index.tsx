@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TableProps } from "./types";
 import Header from "../Header";
 import Row from "../Row";
 import styles from "../styles.module.scss";
 import Body from "../Body";
 import Col from "../Col";
-import { ObjectWithRequiredId } from "../types";
+import { Column, ObjectWithRequiredId } from "../types";
 import PassedData from "../PassedData";
 import clsx from "clsx";
 import Filters from "../Filters";
+import useSelectRows from "@/components/RealTable/hooks/useSelectRows";
 
 function Table<Item extends ObjectWithRequiredId>({
   children,
-  columns,
+  columns: initialColumns,
   data,
   dataUnderChildren,
   classNames,
@@ -20,7 +21,27 @@ function Table<Item extends ObjectWithRequiredId>({
   isLoading,
   loadingContent,
   onFilterChange,
+  draggableColumns,
+  onSelectRows,
 }: TableProps<Item>) {
+  const [columns, setColumns] = useState<Column<Item>[]>(initialColumns);
+  const { isRowsSelectable, selectedRowIds, onRowSelect } = useSelectRows<Item>(
+    {
+      data,
+      onSelectRows,
+    }
+  );
+
+  const onColumnMove = (dragIndex: number, targetIndex: number) => {
+    const newColumns: Column<Item>[] = [];
+    for (let i = 0; i < columns.length; i++) {
+      if (i === dragIndex) continue;
+      if (i === targetIndex) newColumns.push(columns[dragIndex]);
+      newColumns.push(columns[i]);
+    }
+    setColumns(newColumns);
+  };
+
   const passedData = (
     <PassedData
       data={data}
@@ -29,6 +50,9 @@ function Table<Item extends ObjectWithRequiredId>({
       classNames={classNames?.data}
       isLoading={isLoading}
       loadingContent={loadingContent}
+      isSelectable={isRowsSelectable}
+      selectedRowIds={selectedRowIds}
+      onRowSelect={onRowSelect}
     />
   );
 
@@ -38,6 +62,8 @@ function Table<Item extends ObjectWithRequiredId>({
         columns={columns}
         classNames={classNames?.table?.header}
         onFilterChange={onFilterChange}
+        onColumnMove={draggableColumns ? onColumnMove : undefined}
+        isSelectable={isRowsSelectable}
       />
       {!dataUnderChildren && passedData}
       {children}

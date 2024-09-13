@@ -14,6 +14,9 @@ const PassedData = <Item extends ObjectWithRequiredId>({
   classNames,
   isLoading,
   loadingContent,
+  isSelectable,
+  selectedRowIds,
+  onRowSelect,
 }: PassedData<Item>) => {
   if (isLoading)
     return (
@@ -39,13 +42,24 @@ const PassedData = <Item extends ObjectWithRequiredId>({
     <Body>
       {data.map((row) => (
         <Row key={row.id} className={classNames?.rows}>
-          {columns.map((column) => (
-            <Col key={column.name} className={classNames?.columns}>
-              {typeof column.accessor === "function"
-                ? column.accessor(row)
-                : getValueByPath(row, column.accessor)}
-            </Col>
-          ))}
+          <>
+            {isSelectable && (
+              <Col>
+                <input
+                  type="checkbox"
+                  checked={!!selectedRowIds?.has(row.id)}
+                  onChange={(e) => onRowSelect?.(row.id, e.target.checked)}
+                />
+              </Col>
+            )}
+            {columns.map((column) => (
+              <Col key={column.name} className={classNames?.columns}>
+                {typeof column.accessor === "function"
+                  ? column.accessor(row)
+                  : getValueByPath(row, column.accessor)}
+              </Col>
+            ))}
+          </>
         </Row>
       ))}
     </Body>

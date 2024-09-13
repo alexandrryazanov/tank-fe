@@ -1,0 +1,14 @@
+.HeaderCol {
+  text-align: left;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+
+  &--draggable {
+   cursor: move;
+  }
+
+  &--onDraggedCol {
+   border-left: 4px dashed lightseagreen;
+  }
+}

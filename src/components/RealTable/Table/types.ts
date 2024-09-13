@@ -14,6 +14,8 @@ interface ITableProps<Item extends ObjectWithRequiredId> {
   isLoading?: boolean;
   loadingContent?: ReactNode;
   onFilterChange?: (columnName: string, value: any) => void;
+  draggableColumns?: boolean;
+  onSelectRows?: (rows: Item[]) => void;
   classNames?: MainClassNames;
 }
 

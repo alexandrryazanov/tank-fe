@@ -8,6 +8,9 @@ export interface PassedData<Item extends ObjectWithRequiredId> {
   classNames?: PassedDataClassnames;
   isLoading?: boolean;
   loadingContent?: ReactNode;
+  isSelectable?: boolean;
+  selectedRowIds?: Set<string | number>;
+  onRowSelect?: (id: string | number, checked: boolean) => void;
 }
 
 export interface PassedDataClassnames {

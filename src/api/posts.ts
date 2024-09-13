@@ -1,6 +1,6 @@
 import { ListResponse } from "@/api/types";
 
-interface Post {
+export interface Post {
   id: number;
   title: string;
   description: string | null;
@@ -9,11 +9,38 @@ interface Post {
   author: User;
 }
 
-export async function getPosts(): Promise<ListResponse<Post>> {
-  const res = await fetch(`${process.env.BASE_URL}/posts?limit=30`, {
-    cache: "no-store",
-  });
+export async function getPosts({
+  limit = 50,
+  offset = 0,
+}: {
+  limit?: number;
+  offset?: number;
+} = {}): Promise<ListResponse<Post>> {
+  const res = await fetch(
+    `${process.env.BASE_URL}/posts?limit=${limit}&offset=${offset}`,
+    {
+      cache: "no-store",
+    }
+  );
   if (!res.ok) throw new Error("Failed to fetch posts");
+
+  return res.json();
+}
+
+export async function getMyPosts({
+  limit = 50,
+  offset = 0,
+}: {
+  limit?: number;
+  offset?: number;
+} = {}): Promise<ListResponse<Post>> {
+  const res = await fetch(
+    `${process.env.BASE_URL}/posts/my?limit=${limit}&offset=${offset}`,
+    {
+      cache: "no-store",
+    }
+  );
+  if (!res.ok) throw new Error("Failed to fetch my posts");
 
   return res.json();
 }
