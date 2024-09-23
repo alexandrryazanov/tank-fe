@@ -9,8 +9,8 @@ export interface PassedData<Item extends ObjectWithRequiredId> {
   isLoading?: boolean;
   loadingContent?: ReactNode;
   isSelectable?: boolean;
-  selectedRowIds?: Set<string | number>;
-  onRowSelect?: (id: string | number, checked: boolean) => void;
+  selectedRows?: Record<string, Item>;
+  onRowSelect?: (item: Item) => void;
 }
 
 export interface PassedDataClassnames {

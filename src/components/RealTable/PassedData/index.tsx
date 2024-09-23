@@ -15,7 +15,7 @@ const PassedData = <Item extends ObjectWithRequiredId>({
   isLoading,
   loadingContent,
   isSelectable,
-  selectedRowIds,
+  selectedRows,
   onRowSelect,
 }: PassedData<Item>) => {
   if (isLoading)
@@ -47,8 +47,8 @@ const PassedData = <Item extends ObjectWithRequiredId>({
               <Col>
                 <input
                   type="checkbox"
-                  checked={!!selectedRowIds?.has(row.id)}
-                  onChange={(e) => onRowSelect?.(row.id, e.target.checked)}
+                  checked={!!selectedRows?.[row.id]}
+                  onChange={() => onRowSelect?.(row)}
                 />
               </Col>
             )}

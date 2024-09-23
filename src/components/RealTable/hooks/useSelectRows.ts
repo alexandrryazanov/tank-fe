@@ -9,33 +9,29 @@ const useSelectRows = <Item extends ObjectWithRequiredId>({
   onSelectRows: ((rows: Item[]) => void) | undefined;
   data: Item[] | undefined;
 }) => {
-  const [selectedRowIds, setSelectedRowIds] = useState<Set<string | number>>(
-    new Set()
-  );
+  const [selectedRows, setSelectedRows] = useState<
+    Record<string | number, Item>
+  >({});
 
-  const prevSelectedRowIds = usePrevious(selectedRowIds);
+  const prevSelectedRowIds = usePrevious(selectedRows);
 
-  const onRowSelect = useCallback(
-    (itemId: number | string, checked: boolean) => {
-      const changedSelectedRowIds = new Set(selectedRowIds);
-      if (changedSelectedRowIds.has(itemId)) {
-        changedSelectedRowIds.delete(itemId);
-      } else {
-        changedSelectedRowIds.add(itemId);
-      }
-      setSelectedRowIds(changedSelectedRowIds);
-    },
-    [selectedRowIds]
-  );
+  const onRowSelect = useCallback((item: Item) => {
+    setSelectedRows((prev) => {
+      const newRows = { ...prev };
+      if (newRows[item.id]) delete newRows[item.id];
+      else newRows[item.id] = item;
+      return newRows;
+    });
+  }, []);
 
   useEffect(() => {
     if (!onSelectRows || !data || !prevSelectedRowIds) return;
-    onSelectRows(data.filter((item) => selectedRowIds.has(item.id)));
-  }, [selectedRowIds, onSelectRows, data, prevSelectedRowIds]);
+    onSelectRows(Object.values(selectedRows));
+  }, [selectedRows, onSelectRows, data, prevSelectedRowIds]);
 
   const isRowsSelectable = !!onSelectRows && !!data;
 
-  return { selectedRowIds, onRowSelect, isRowsSelectable };
+  return { selectedRows, onRowSelect, isRowsSelectable };
 };
 
 export default useSelectRows;

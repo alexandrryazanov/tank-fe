@@ -25,12 +25,10 @@ function Table<Item extends ObjectWithRequiredId>({
   onSelectRows,
 }: TableProps<Item>) {
   const [columns, setColumns] = useState<Column<Item>[]>(initialColumns);
-  const { isRowsSelectable, selectedRowIds, onRowSelect } = useSelectRows<Item>(
-    {
-      data,
-      onSelectRows,
-    }
-  );
+  const { isRowsSelectable, selectedRows, onRowSelect } = useSelectRows<Item>({
+    data,
+    onSelectRows,
+  });
 
   const onColumnMove = (dragIndex: number, targetIndex: number) => {
     const newColumns: Column<Item>[] = [];
@@ -51,7 +49,7 @@ function Table<Item extends ObjectWithRequiredId>({
       isLoading={isLoading}
       loadingContent={loadingContent}
       isSelectable={isRowsSelectable}
-      selectedRowIds={selectedRowIds}
+      selectedRows={selectedRows}
       onRowSelect={onRowSelect}
     />
   );
