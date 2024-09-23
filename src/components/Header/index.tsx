@@ -2,11 +2,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const Header = () => {
+const OldHeader = () => {
   return (
     <header
       className={
-        "w-full min-h-[130px] bg-primary rounded-xl p-4 pt-8 m-0 shadow-md flex gap-6"
+        "w-full min-h-[130px] bg-primary rounded-xl p-4 pt-8 m-0 shadow-md flex gap-6 mb-4"
       }
     >
       <Image
@@ -40,4 +40,8 @@ const Header = () => {
   );
 };
 
-export default Header;
+const Header = () => {
+  return <header>test</header>;
+};
+
+export default OldHeader;

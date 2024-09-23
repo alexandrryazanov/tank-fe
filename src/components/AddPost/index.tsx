@@ -5,6 +5,7 @@ import api from "@/api/axiosInstanse";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
+import { Button } from "@nextui-org/button";
 
 const AddPost = () => {
   const router = useRouter();
@@ -123,12 +124,12 @@ const AddPost = () => {
           <tr>
             <td />
             <td className={"p-2 text-right"}>
-              <button
+              <Button
                 type={"submit"}
-                className={"border-2 rounded-lg px-2 py-1"}
+                // className={"border-2 rounded-lg px-2 py-1"}
               >
                 Создать
-              </button>
+              </Button>
             </td>
           </tr>
         </tbody>

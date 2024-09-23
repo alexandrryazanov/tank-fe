@@ -1,35 +1,38 @@
 import React from "react";
 import { CardProps } from "@/components/Card/types";
+import { Card, CardFooter } from "@nextui-org/card";
+import { Image } from "@nextui-org/image";
+import { Chip } from "@nextui-org/chip";
 
-const Card = ({ title, authorName, imageUrl, tags }: CardProps) => {
+const PostCard = ({ title, authorName, imageUrl, tags }: CardProps) => {
   return (
-    <div
-      className={
-        "h-[400px] w-[400px] bg-black-0 rounded-xl shadow-md overflow-hidden"
-      }
+    <Card
+      isFooterBlurred
+      className="w-[400px] h-[400px] col-span-12 sm:col-span-7 shadow-small"
     >
-      <div
-        className={"h-[15%] w-full bg-primary flex justify-center items-center"}
-      >
-        {title}
-      </div>
-      <div className={"h-[70%] overflow-hidden flex items-center bg-secondary"}>
-        <img src={imageUrl} className={"w-full"} />
-      </div>
-      <div
-        className={
-          "h-[15%] w-full bg-primary flex flex-col justify-center items-center"
-        }
-      >
-        <div>by {authorName}</div>
-        <div className={"flex gap-2"}>
+      <Image
+        removeWrapper
+        alt="Image background"
+        className="z-0 w-full h-full object-cover"
+        src={imageUrl}
+      />
+      <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+        <div className="flex flex-grow gap-2 items-center">
+          <div className="flex flex-col">
+            <p className="text-small text-secondary">{title}</p>
+            <p className="text-small text-secondary">By {authorName}</p>
+          </div>
+        </div>
+        <div className="flex gap-1">
           {tags.map((tag) => (
-            <span key={tag}>#{tag}</span>
+            <Chip key={tag} size="md" color="success">
+              {tag}
+            </Chip>
           ))}
         </div>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 };
 
-export default Card;
+export default PostCard;

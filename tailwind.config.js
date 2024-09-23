@@ -1,33 +1,14 @@
+import { COLORS } from "./src/configs/colors";
+const { nextui } = require("@nextui-org/theme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     colors: {
-      primary: {
-        light: "#a0a04d", // светлый оттенок primary
-        DEFAULT: "#303a30", // основной цвет primary по умолчанию
-        dark: "#606000", // темный оттенок primary
-      },
-      secondary: {
-        light: "#e6d7c6", // светлый оттенок secondary
-        DEFAULT: "#b0e0b0", // основной цвет secondary по умолчанию
-        dark: "#b39a82", // темный оттенок secondary
-      },
-      success: {
-        light: "#4ade80", // светлый оттенок для успешных действий
-        DEFAULT: "#10b981", // цвет для успешных действий по умолчанию
-        dark: "#059669", // темный оттенок для успешных действий
-      },
-      warning: {
-        light: "#fbbf24", // светлый оттенок для предупреждений
-        DEFAULT: "#f59e0b", // цвет для предупреждений по умолчанию
-        dark: "#d97706", // темный оттенок для предупреждений
-      },
-      danger: {
-        light: "#f87171", // светлый оттенок для опасных действий
-        DEFAULT: "#ef4444", // цвет для опасных действий по умолчанию
-        dark: "#dc2626", // темный оттенок для опасных действий
-      },
+      ...COLORS,
       black: {
         0: "#ffffff",
         50: "#f9fafb",
@@ -48,5 +29,24 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    nextui({
+      prefix: "nextui", // prefix for themes variables
+      addCommonColors: false, // override common colors (e.g. "blue", "green", "pink").
+      defaultTheme: "light", // default theme from the themes object
+      defaultExtendTheme: "light", // default theme to extend on custom themes
+      layout: {}, // common layout tokens (applied to all themes)
+      themes: {
+        light: {
+          layout: {}, // light theme layout tokens
+          colors: { ...COLORS, background: "#fafffa" }, // light theme colors
+        },
+        dark: {
+          layout: {}, // dark theme layout tokens
+          colors: {}, // dark theme colors
+        },
+        // ... custom themes
+      },
+    }),
+  ],
 };
