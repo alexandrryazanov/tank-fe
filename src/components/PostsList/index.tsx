@@ -12,6 +12,7 @@ const PostsList = ({ list }: { list: Post[] }) => {
       {list.map((post) => (
         <Card
           key={post.id}
+          id={post.id}
           title={post.title}
           authorName={post.author.name}
           imageUrl={post.images[0] || ""}

@@ -7,7 +7,7 @@ import clsx from "clsx";
 export const columns: Column<UserItem>[] = [
   {
     name: "ID",
-    accessor: "id",
+    accessor: "user.address.street",
   },
   {
     name: "Firstname",

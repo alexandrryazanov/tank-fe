@@ -6,6 +6,7 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
     colors: {
       ...COLORS,
@@ -21,6 +22,7 @@ module.exports = {
         700: "#374151",
         800: "#1f2937",
         900: "#111827",
+        DEFAULT: "",
       },
     },
     extend: {

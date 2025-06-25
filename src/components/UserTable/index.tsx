@@ -41,15 +41,15 @@ const UsersTable = () => {
       draggableColumns
       onSelectRows={(rows) => console.log(rows)}
     >
-      <RealTable.Body>
-        <RealTable.Row>
-          <RealTable.Col>test1</RealTable.Col>
-          <RealTable.Col>test1</RealTable.Col>
-          <RealTable.Col className={"bg-success"}>test2</RealTable.Col>
-          <RealTable.Col>test3</RealTable.Col>
-          <RealTable.Col>test3</RealTable.Col>
-        </RealTable.Row>
-      </RealTable.Body>
+      {/*<RealTable.Body>*/}
+      {/*  <RealTable.Row>*/}
+      {/*    <RealTable.Col>test1</RealTable.Col>*/}
+      {/*    <RealTable.Col>test1</RealTable.Col>*/}
+      {/*    <RealTable.Col className={"bg-success"}>test2</RealTable.Col>*/}
+      {/*    <RealTable.Col>test3</RealTable.Col>*/}
+      {/*    <RealTable.Col>test3</RealTable.Col>*/}
+      {/*  </RealTable.Row>*/}
+      {/*</RealTable.Body>*/}
     </RealTable>
   );
 };

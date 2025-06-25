@@ -1,6 +1,6 @@
 import UsersTable from "@/components/UserTable";
 
-export default function FilesPage() {
+export default function TableTestPage() {
   return (
     <main>
       <UsersTable />
