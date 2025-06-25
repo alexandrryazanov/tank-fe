@@ -9,7 +9,11 @@ import * as Orders from "./components/orders";
 const TestPage = () => {
   const [status, setStatus] = useState<OrderStatus>(OrderStatus.CREATED);
 
+  console.log("test1");
+
   const OrderComponent = Orders[status];
+
+  console.log("test1");
 
   return (
     <>
