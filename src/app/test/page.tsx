@@ -13,8 +13,6 @@ const TestPage = () => {
 
   const OrderComponent = Orders[status];
 
-  console.log("test1");
-
   return (
     <>
       <ButtonsBlock onChangeStatus={setStatus} />
