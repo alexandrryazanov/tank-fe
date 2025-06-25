@@ -11,9 +11,9 @@ const TestPage = () => {
 
   console.log("test1");
 
-  const OrderComponent = Orders[status];
+  console.log("test2");
 
-  console.log("test1");
+  const OrderComponent = Orders[status];
 
   return (
     <>
