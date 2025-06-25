@@ -14,6 +14,7 @@ const TestPage = () => {
   const OrderComponent = Orders[status];
 
   console.log("test2");
+  console.log("test1");
 
   return (
     <>
